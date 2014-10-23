@@ -1,0 +1,90 @@
+package com.problem;
+
+import java.util.Arrays;
+
+public class NewSol {
+
+	public static void main(String[] args) {
+
+		String str = "There is no place for the audi in this world. audi is place of the world. world has place for the great audi";
+
+		String[] words = str.split(" ");
+
+		int len = words.length;
+
+		String key1 = "place", key2 = "audi";
+
+		int count = 0;
+		for (int i = 0; i < len; i++) {
+
+			if (key1.equals(words[i])) {
+				count++;
+			} else if (key2.equals(words[i])) {
+				count++;
+			}
+		}
+
+		// System.out.println(count);
+
+		int[] counter = new int[count];
+
+		for (int i = 0, j = 0; i < len; i++) {
+
+			if (key1.equals(words[i])) {
+				counter[j++] = i;
+				count++;
+			} else if (key2.equals(words[i])) {
+				counter[j++] = i;
+				count++;
+			}
+		}
+
+		for (Integer i : counter) {
+			System.out.println(i);
+		}
+
+		System.out.println("________________");
+
+		int min = 0;
+
+		for (int k = 0; k <= count - 1; k++) {
+			if (min > Math.abs(counter[k] - counter[k + 1])) {
+				min = Math.abs(counter[k] - counter[k + 1]);
+			}
+		}
+
+		System.out.println(min);
+
+		for (Integer i : counter) {
+			System.out.println(i);
+		}
+
+		// int diff[] = getMinDifference(counter);
+
+		// for (Integer x : diff) {
+		// System.out.println(x);
+		// }
+
+	}
+
+	private static int[] getMinDifference(int[] a) {
+
+		int minDiff = 0;
+
+		int[] m = new int[3];
+
+		for (int i = 0; i < a.length - 1; i++) {
+
+			for (int j = i + 1; j < a.length; j++) {
+
+				if (minDiff > Math.abs(a[i] - a[j])) {
+					minDiff = Math.abs(a[i] - a[j]);
+					m[1] = i;
+					m[2] = j;
+				}
+			}
+		}
+
+		return m;
+	}
+}

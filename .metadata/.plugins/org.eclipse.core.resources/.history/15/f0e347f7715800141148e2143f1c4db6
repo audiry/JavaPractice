@@ -1,0 +1,23 @@
+package com.practice;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author penchal
+ *	Date : 20/10/2014 
+ */
+
+public class FindMinMax {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int[] arr = {4, 3, 5, 1, 2, 6, 9, 2, 10, 11};
+		
+		List<Integer> ls = new ArrayList<Integer>();
+		
+		
+	}
+
+}

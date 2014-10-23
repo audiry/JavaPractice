@@ -1,0 +1,70 @@
+/**
+ * 
+ */
+package com.practice;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ * @author penchal
+ * 
+ */
+public class NumberOfOnes {
+
+	private static int sum = 0;
+
+	public static void main(String[] args) throws IOException {
+
+		int n = new Scanner(System.in).nextInt();
+
+		findOnes(n);
+	}
+
+	/**
+	 * @param n
+	 */
+	private static void findOnes(int n) {
+		// TODO Auto-generated method stub
+
+		List<Integer> ls = new ArrayList<Integer>();
+
+		for (int i = 1; i < =n; i++) {
+			ls.add(getCountOfOnesInBinaryForm(i));
+		}
+
+		for (int count1 : ls) {
+
+			System.out.println(count1);
+			sum += count1;
+		}
+
+		System.out.println(sum);
+
+	}
+
+	/**
+	 * @param i
+	 */
+	private static int getCountOfOnesInBinaryForm(int num) {
+
+		// TODO Auto-generated method stub
+
+		int count = 0;
+
+		char[] c = Integer.toBinaryString(num).toCharArray();
+
+		List<Character> ls1 = new ArrayList<Character>();
+
+		for (char cc : c) {
+			if (ls1.contains(cc)) {
+				count++;
+			} else {
+				ls1.add(cc);
+			}
+		}
+		return count;
+	}
+}

@@ -1,0 +1,53 @@
+/**
+ * 
+ */
+package com.practice;
+
+/**
+ * @author penchal
+ * 
+ */
+public class MoveZerosToRight {
+
+	public static void main(String[] args) {
+		int[] arr = { 0, 5, 0, 2, 3, 0, 3, 5, 0 };
+
+		moveZerosToRight(arr);
+
+		for (int i : arr) {
+			System.out.println(i);
+		}
+	}
+
+	/**
+	 * @param arr
+	 */
+	private static void moveZerosToRight(int[] arr) {
+		// TODO Auto-generated method stub
+
+		int left = 0, right = arr.length - 1;
+
+		int middle = (left + right) / 2;
+
+		while (left <= right) {
+
+			if (arr[left] == 0 && arr[right] != 0) {
+				int temp = arr[left];
+				arr[left] = arr[right];
+				arr[right] = temp;
+				left++;
+				right--;
+
+			} else {
+				if (arr[left] != 0) {
+					left++;
+				}
+				if (arr[right] == 0) {
+					right--;
+				}
+			}
+		}
+
+	}
+
+}

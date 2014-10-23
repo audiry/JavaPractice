@@ -1,0 +1,30 @@
+/**
+ * 
+ */
+package com.practice;
+
+/**
+ * @author penchal
+ * 
+ */
+public class MoveZerosToRight {
+
+	public static void main(String[] args) {
+		int[] arr = { 0, 5, 0, 2, 3, 0, 3, 5, 0 };
+
+		moveZerosToRight(arr);
+	}
+
+	/**
+	 * @param arr
+	 */
+	private static void moveZerosToRight(int[] arr) {
+		// TODO Auto-generated method stub
+
+		int left = 0, right = arr.length;
+
+		int middle = (left + right) / 2;
+
+	}
+
+}

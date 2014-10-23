@@ -1,0 +1,46 @@
+/**
+ * 
+ */
+package com.problem;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.SortedSet;
+
+public class NewSolV2 {
+
+	public static void main(String[] args) {
+
+		String s = "There is no place for the audi in this world. audi is place of the world. world has place for the great audi";
+
+		String w1 = "audi";
+		String w2 = "place";
+
+		String[] words = s.split(" ");
+
+		List<String> ls = new ArrayList<String>(Arrays.asList(words));
+
+		int sizeOfList = ls.size();
+
+		List<Integer> l1 = new ArrayList<Integer>();
+		List<Integer> l2 = new ArrayList<Integer>();
+
+		for (int i = 0; i < sizeOfList; i++) {
+
+			if (ls.get(i).equals(w1))
+				l1.add(i);
+			if (ls.get(i).equals(w2))
+				l2.add(i);
+		}
+
+		for (int i : l1) {
+			System.out.println(i);
+		}
+
+		for (int j : l2) {
+			System.out.println(j);
+		}
+
+	}
+}

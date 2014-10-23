@@ -1,0 +1,33 @@
+/**
+ * 
+ */
+package com.problem;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class ShortestSentenceFinder {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// BufferedReader br = new BufferedReader(new InputStreamReader())
+		String str = "There is no place for the audi in this world. audi is place of the world. world has place for the great audi";
+
+		String[] words = str.split(" ");
+
+		String key1 = "place", key2 = "audi";
+
+		List<String> ls = new ArrayList<String>(Arrays.asList(words));
+
+		for (int i = 0; i < ls.size(); i++) {
+
+			if (ls.contains(key1)) {
+				System.out.println(ls.get(i));
+
+			}
+		}
+
+	}
+}

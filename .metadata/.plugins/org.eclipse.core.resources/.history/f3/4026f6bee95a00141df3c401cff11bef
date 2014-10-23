@@ -1,0 +1,94 @@
+/**
+ * 
+ */
+package com.problem;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class NewSolV2 {
+
+	public static void main(String[] args) {
+
+		String s = "There is no place place for the audi in this world. audi is place of the world. world has place for the great audi";
+
+		String[] words = s.split(" ");
+
+		String w1 = "audi";
+		String w2 = "place";
+
+		String shortSen = printShortSentence(words, w1, w2);
+
+		System.out.println(shortSen);
+
+	}
+
+	private static String printShortSentence(String[] s, String w1, String w2) {
+
+		List<String> ls = new ArrayList<String>(Arrays.asList(s));
+
+		int sizeOfList = ls.size();
+
+		List<Integer> l1 = new ArrayList<Integer>();
+		List<Integer> l2 = new ArrayList<Integer>();
+
+		for (int i = 0; i < sizeOfList; i++) {
+
+			if (ls.get(i).equals(w1))
+				l1.add(i);
+			if (ls.get(i).equals(w2))
+				l2.add(i);
+		}
+
+		int[] pos = getPositionsOfSentence(l1, l2);
+
+		StringBuffer sb = new StringBuffer();
+
+		while (pos[1] <= pos[2]) {
+			sb.append(s[pos[1]++]).append(" ");
+		}
+
+		String shortSentence = sb.toString();
+		return shortSentence;
+
+	}
+
+	private static int[] getPositionsOfSentence(List<Integer> l1,
+			List<Integer> l2) {
+		int min = Integer.MAX_VALUE;
+		int[] n = new int[3];
+
+		n[1] = 0;
+		n[2] = 0;
+		for (int i = 0; i < l1.size(); i++) {
+
+			for (int j = 0; j < l2.size(); j++) {
+
+				if (min > Math.abs(l1.get(i) - l2.get(j))) {
+
+					min = Math.abs(l1.get(i) - l2.get(j));
+					n[1] = l1.get(i);
+					n[2] = l2.get(j);
+				}
+			}
+		}
+
+		return n;
+	}
+
+	@Test
+	public void testWithEmptyString() {
+
+		String s = "There is no place place for the audi in this world. audi is place of the world. world has place for the great audi";
+		String[] st = s.split(" ");
+
+		String w1 = " audi";
+		String w2 = " place";
+
+		Assert.assertEquals(printShortSentence(st, w1, w2), "audi is place");
+	}
+}

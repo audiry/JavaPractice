@@ -1,0 +1,25 @@
+/**
+ * 
+ */
+package com.practice;
+
+static class Node {
+
+	public int val;
+	public Node n;
+
+	Node(int x) {
+		this.val = x;
+	}
+}
+
+public class LinkedListOps {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Node n1 = new Node(10);
+
+	}
+
+}

@@ -1,0 +1,81 @@
+package com.problem;
+
+import java.util.Arrays;
+
+public class NewSol {
+
+	public static void main(String[] args) {
+
+		String str = "There is no place for the audi in this world. audi is place of the world. world has place for the great audi";
+
+		String[] words = str.split(" ");
+
+		int len = words.length;
+
+		String word1 = "place", word2 = "audi";
+
+		int count = 0;
+
+		for (int i = 0; i < len; i++) {
+
+			if (word1.equals(words[i])) {
+				count++;
+			} else if (word2.equals(words[i])) {
+				count++;
+			}
+		}
+
+		// System.out.println(count);
+
+		int[] counter = new int[count];
+
+		for (int i = 0, j = 0; i < len; i++) {
+
+			if (word1.equals(words[i])) {
+				counter[j++] = i;
+				count++;
+			} else if (word2.equals(words[i])) {
+				counter[j++] = i;
+				count++;
+			}
+		}
+
+		for (Integer i : counter) {
+			System.out.println(i);
+		}
+
+		System.out.println("________________");
+
+		int min = Integer.MAX_VALUE;
+		int k1 = 0;
+		int k2 = 0;
+
+		for (int k = 1; k < count-1; k++) {
+			if (min > Math.abs(counter[k - 1] - counter[k])) {
+				min = Math.abs(counter[k - 1] - counter[k]);
+				k1 = counter[k - 1];
+				k2 = counter[k];
+			}
+		}
+
+		System.out.println(min + "  " + k1 + "  " + k2);
+
+		StringBuffer sb = new StringBuffer();
+		while (k1 <= k2) {
+			sb.append(words[k1++]).append(" ");
+		}
+
+		System.out.println(sb);
+
+		// for (Integer i : counter) {
+		// System.out.println(i);
+		// }
+
+	}
+
+	String getShortest(String word1, String word2) {
+
+		return word2;
+	}
+
+}
